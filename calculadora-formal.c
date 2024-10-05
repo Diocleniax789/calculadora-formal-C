@@ -2,11 +2,15 @@
 #include <windows.h>
 #include <stdlib.h>
 
+#define FILAS 5
+#define COLUMNAS 3
+
 void presentacion();
 void gotoxy(int,int);
 void menu_principal();
 void calculadora_comun();
 void calculadora_cientifica();
+void rellenar_tabla(int, int*,int*);
 
 int main(){
     presentacion();
@@ -72,28 +76,53 @@ void menu_principal(){
 }
 
 void calculadora_comun(){
+    int filas = FILAS, columnas = COLUMNAS;
+    static char tabla_caracteres[filas][columnas];
+
+    rellenar_tabla(tabla_caracteres,&filas,&columnas);
+
+    do{
+        system("cls");
+        printf("\n ============================================= \n");
+        printf("\n ||///////////FORMAL CALCULATOR 1.0/////////|| \n");
+        printf("\n ============================================= \n");
+        printf("\n ||                                         || \n");
+        printf("\n ============================================= \n");
+        printf("\n ||-----------------------------------------|| \n");
+        printf("\n ||       7   |       8       |       9     || \n");
+        printf("\n ||-----------------------------------------|| \n");
+        printf("\n ||       4   |       5       |       6     || \n");
+        printf("\n ||-----------------------------------------|| \n");
+        printf("\n ||       1   |       2       |       3     || \n");
+        printf("\n ||-----------------------------------------|| \n");
+        printf("\n ||       0   |       +       |       -     || \n");
+        printf("\n -------------------------------------------|| \n");
+        printf("\n ||       /   |       *       |       =     || \n");
+        printf("\n ============================================= \n");
+        printf("\n ||/////////////////////////////////////////|| \n");
+        printf("\n ============================================= \n");
+        printf("\n");
 
 
-    printf("\n ============================================= \n");
-    printf("\n ||///////////FORMAL CALCULATOR 1.0/////////|| \n");
-    printf("\n ============================================= \n");
-    printf("\n ||                                         || \n");
-    printf("\n ============================================= \n");
-    printf("\n ||-----------------------------------------|| \n");
-    printf("\n ||       7   |       8       |       9     || \n");
-    printf("\n ||-----------------------------------------|| \n");
-    printf("\n ||       4   |       5       |       6     || \n");
-    printf("\n ||-----------------------------------------|| \n");
-    printf("\n ||       1   |       2       |       3     || \n");
-    printf("\n ||-----------------------------------------|| \n");
-    printf("\n ||       0   |       +       |       -     || \n");
-    printf("\n -------------------------------------------|| \n");
-    printf("\n ||       /   |       *       |       =     || \n");
-    printf("\n ============================================= \n");
-    printf("\n ||/////////////////////////////////////////|| \n");
-    printf("\n ============================================= \n");
 
 
+    } while();
 
+}
 
+void rellenar_tabla(char tabla_caracteres, int *fil,int *col){
+    int i,j;
+
+    for(i = 0; i < *fil; i++){
+        for(j = 0; j < *col; j++){
+            system("cls");
+            printf("\n Ingrese los botones de forma ordenada \n");
+            fflush(stdin);
+            printf("\n + Ingrese valor del boton: ");
+            scanf("%c",&tabla_caracteres[i][j]);
+        }
+    }
+
+    printf("\n");
+    printf("\n *** TODOS LOS BOTONES LISTOS *** \n");
 }

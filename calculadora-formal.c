@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define FILAS 5
 #define COLUMNAS 3
@@ -11,6 +12,7 @@ void menu_principal();
 void calculadora_comun();
 void calculadora_cientifica();
 void rellenar_tabla(int, int*,int*);
+int operatoria(char*);
 
 int main(){
     presentacion();
@@ -76,8 +78,9 @@ void menu_principal(){
 }
 
 void calculadora_comun(){
-    int filas = FILAS, columnas = COLUMNAS;
+    int filas = FILAS, columnas = COLUMNAS, resultado,i;
     static char tabla_caracteres[filas][columnas];
+    char cadena_operatoria[13],car;
 
     rellenar_tabla(tabla_caracteres,&filas,&columnas);
 
@@ -103,7 +106,9 @@ void calculadora_comun(){
         printf("\n ============================================= \n");
         printf("\n");
 
-
+        printf("Escriba su operacion aqui abajo: \n");
+        scanf("%s",cadena_operatoria);
+        resultado = operatoria(cadena_operatoria);
 
 
     } while();
@@ -125,4 +130,18 @@ void rellenar_tabla(char tabla_caracteres, int *fil,int *col){
 
     printf("\n");
     printf("\n *** TODOS LOS BOTONES LISTOS *** \n");
+}
+
+int operatoria(char *cadena_operatoria){
+    int i, longitud_cadena;
+    char cad_aux[13];
+    strcpy(cad_aux,cadena_operatoria);
+    longitud_cadena = strlen(cad_aux);
+    for(i = 0, i < longitud_cadena; i++){
+        if(isalnum(cad_aux[i])){
+
+        }
+    }
+
+
 }

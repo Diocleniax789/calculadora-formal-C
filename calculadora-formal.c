@@ -135,7 +135,7 @@ int operatoria(char *cadena_operatoria){
         if(acum == 0){
             acum = acum + atoi(token);
         } else {
-
+        // aca quede
 
         }
         token = strtok(NULL,operadores);
